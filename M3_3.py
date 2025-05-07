@@ -1,6 +1,4 @@
-tasks = []
-
-while True:
+def menu():
     print("\nMenu:")
     print("1. Add Task")
     print("2. Remove Task")
@@ -9,6 +7,11 @@ while True:
 
     choice = input("Enter your choice (1-4): ")
 
+tasks = []
+
+while True:
+    choice_str = menu()
+    
     if choice == '1':
         task = input("Enter the task description: ")
         tasks.append(task)
