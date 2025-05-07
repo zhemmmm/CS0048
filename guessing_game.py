@@ -1,11 +1,14 @@
 import random
 
-while True:
-    print("\nMenu:")
+def menu():
+    print("\nMenu")
     print("1. Play Number Guessing Game")
     print("2. Exit")
 
     choice_str = input("Enter your choice (1-2): ")
+
+while True:
+    choice_str = menu()
 
     if not choice_str.isdigit():
         print("Invalid input. Please enter a number between 1 and 2.")
