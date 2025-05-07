@@ -1,14 +1,15 @@
-
-
-scores = []
-
-while True:
+def menu():
     print("\nMenu:")
     print("1. Add Score")
     print("2. Calculate Average")
     print("3. Exit")
 
     choice_str = input("Enter your choice (1-3): ")
+
+scores = []
+
+while True:
+    choice_str = menu()
 
     if not choice_str.isdigit():
         print("Invalid input. Please enter a number between 1 and 3.")
