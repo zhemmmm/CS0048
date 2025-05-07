@@ -1,41 +1,42 @@
+print("\nStudent Grading Calculator")
+
 def menu():
     print("\nMenu:")
-    print("1. Add Score")
-    print("2. Calculate Average")
-    print("3. Exit")
+    print(" 1. Add Score")
+    print(" 2. Calculate Average")
+    print(" 3. Exit")
 
-    choice_str = input("Enter your choice (1-3): ")
+def add_score(scores):
+    subject = input(" Enter the subject: ")
+    score = input(" Enter the score: ")
 
-scores = []
-
-while True:
-    choice_str = menu()
-
-    if not choice_str.isdigit():
-        print("Invalid input. Please enter a number between 1 and 3.")
-        continue
-
-    choice = int(choice_str)
-
-    if choice == 3:
-        print("Exiting the program.")
-        break
-
-    if choice == 1:
-        subject = input("Enter the subject name: ")
-        while True:
-          score_str = input("Enter the score: ")
-          if not score_str.isdigit():
-              print("Invalid input. Please enter a valid number for the score.")
-              continue
-          score = int(score_str)
-          scores.append(score)
-          break
-    elif choice == 2:
-        if not scores:
-            print("No scores added yet.")
-        else:
-            average = sum(scores) / len(scores)
-            print("Average score:", average)
+    if score.isdigit():
+        scores[subject] = int(score)
+        print(" Score is added.")
     else:
-        print("Invalid choice. Please enter a number between 1 and 3.")
+        print(" Enter a number score.")
+
+def calculate_average(scores):
+    if scores:
+        average = sum(scores.values()) / len(scores)
+        print(f"Average Grade: {average:.2f}")
+    else:
+        print("No scores available to calculate average.")
+
+def main():
+    scores = {}
+    while True:
+        menu()
+        choice = input("Enter your choice (1-3): ")
+
+        if choice == '1':
+            add_score(scores)
+        elif choice == '2':
+            calculate_average(scores)
+        elif choice == '3':
+            print("Thank you for using the student grade calculator.")
+            break
+        else:
+            print("Invalid choice. Choose from (1-3).")
+
+main()
